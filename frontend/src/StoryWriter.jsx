@@ -44,7 +44,8 @@ export default function StoryWriter({ onBackToHome }){
   async function detectCharacters() {
     setError('')
     try {
-      const res = await fetch('http://localhost:8000/extract', {
+      const res = await fetch('https://ai-story-writer.onrender.com/extract', {
+
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ context: text })
@@ -87,7 +88,8 @@ export default function StoryWriter({ onBackToHome }){
     setSuggestDone([false, false, false])
     
     try {
-      const res = await fetch('http://localhost:8000/suggestions_stream', {
+      const res = await fetch('https://ai-story-writer.onrender.com/suggestions_stream', {
+
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ context: text })
@@ -196,7 +198,8 @@ export default function StoryWriter({ onBackToHome }){
     setCompletionDone(false)
     
     try {
-      const res = await fetch('http://localhost:8000/complete_stream', {
+      const res = await fetch('https://ai-story-writer.onrender.com/complete_stream', {
+
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ context: text })
