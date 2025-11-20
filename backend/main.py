@@ -17,11 +17,12 @@ app = FastAPI()
 # CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["*"],  # Allow all origins (or specify your frontend URL once deployed)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # Initialize Groq client
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
